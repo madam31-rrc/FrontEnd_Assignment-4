@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Survey</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="surveyForm" action="https://httpbin.org/post" method="post">
+        <fieldset>
+            <legend>Personal Information</legend>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <span class="error" id="nameError"></span>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <span class="error" id="emailError"></span>
+        </fieldset>
+
+        <fieldset>
+            <legend>Survey Questions</legend>
+            <p>How satisfied are you with our service?</p>
+            <label><input type="radio" name="satisfaction" value="very-satisfied"> Very Satisfied</label>
+            <label><input type="radio" name="satisfaction" value="satisfied"> Satisfied</label>
+            <label><input type="radio" name="satisfaction" value="neutral"> Neutral</label>
+            <label><input type="radio" name="satisfaction" value="dissatisfied"> Dissatisfied</label>
+            <label><input type="radio" name="satisfaction" value="very-dissatisfied"> Very Dissatisfied</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Preferences</legend>
+            <p>Which of the following features do you use?</p>
+            <label><input type="checkbox" name="features" value="online-banking"> Online Banking</label>
+            <label><input type="checkbox" name="features" value="mobile-app"> Mobile App</label>
+            <label><input type="checkbox" name="features" value="customer-support"> Customer Support</label>
+            <label><input type="checkbox" name="features" value="investment-tools"> Investment Tools</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Additional Details</legend>
+            <label for="service">Choose a service you use:</label>
+            <select id="service" name="service">
+                <option value="">-- Select --</option>
+                <option value="checking">Checking Account</option>
+                <option value="savings">Savings Account</option>
+                <option value="loans">Loans</option>
+                <option value="investments">Investments</option>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <legend>Security & Validation</legend>
+            <label for="username">Username (Alphanumeric only):</label>
+            <input type="text" id="username" name="username" pattern="^[a-zA-Z0-9]+$" required>
+            <span class="error" id="usernameError"></span>
+
+            <label for="dob">Date of Birth (DD-MM-YYYY):</label>
+            <input type="text" id="dob" name="dob" pattern="\d{2}-\d{2}-\d{4}" required>
+            <span class="error" id="dobError"></span>
+
+            <label for="customId">Custom ID (ABC-1234):</label>
+            <input type="text" id="customId" name="customId" pattern="^[A-Z]{3}-\d{4}$" required>
+            <span class="error" id="customIdError"></span>
+        </fieldset>
+
+        <fieldset>
+            <legend>Additional Inputs</legend>
+            <label for="birthdate">Birth Date:</label>
+            <input type="date" id="birthdate" name="birthdate" required>
+
+            <label for="rating">Rate our service (1-10):</label>
+            <input type="number" id="rating" name="rating" min="1" max="10" required>
+        </fieldset>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
