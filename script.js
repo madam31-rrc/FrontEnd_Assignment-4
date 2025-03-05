@@ -65,4 +65,12 @@ document.getElementById("surveyForm").addEventListener("submit", function(event)
         return true;
     }
 
+    isValid &= isNotEmpty("name");
+    isValid &= isValidEmail("email");
+    isValid &= hasCheckedOption("satisfaction");
+    isValid &= isSelected("service");
     
+    if (!isValid) {
+        event.preventDefault();
+    }
+});
